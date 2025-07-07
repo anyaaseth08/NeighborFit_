@@ -260,4 +260,4 @@ For support, email support@neighborfit.com or create an issue in the GitHub repo
 
 **Built with ❤️ for finding the perfect neighborhood in India**
 
-[Live Demo](https://neighborfit.netlify.app) | [Documentation](https://docs.neighborfit.com) | [API Reference](https://api.neighborfit.com/docs)
+[Live Demo](https://neighbor-fit-cyan-chi.vercel.app/) | [Documentation](https://docs.neighborfit.com) | [API Reference](https://api.neighborfit.com/docs)
