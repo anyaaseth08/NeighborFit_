@@ -1,0 +1,202 @@
+[
+  {
+    "id": "1",
+    "name": "Koramangala",
+    "city": "Bangalore",
+    "state": "Karnataka",
+    "description": "A vibrant tech hub with cafes, startups, and a youthful vibe.",
+    "priceRange": { "min": 25000, "max": 45000 },
+    "ratings": {
+      "overall": 4.3,
+      "safety": 4.1,
+      "schools": 4.2,
+      "transit": 4.5,
+      "nightlife": 4.6,
+      "cost": 3.2
+    },
+    "features": ["tech-hub", "nightlife", "metro", "shopping", "cafes"],
+    "demographics": { "population": 85000, "medianAge": 28, "medianIncome": 850000 },
+    "coordinates": { "lat": 12.9352, "lng": 77.6245 },
+    "reviews": []
+  },
+  {
+    "id": "2",
+    "name": "Bandra West",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "description": "Trendy area known for Bollywood ties, sea views, and nightlife.",
+    "priceRange": { "min": 35000, "max": 80000 },
+    "ratings": {
+      "overall": 4.5,
+      "safety": 4.3,
+      "schools": 4.4,
+      "transit": 4.2,
+      "nightlife": 4.8,
+      "cost": 2.8
+    },
+    "features": ["upscale", "nightlife", "coastal", "celebrity-zone"],
+    "demographics": { "population": 120000, "medianAge": 32, "medianIncome": 1200000 },
+    "coordinates": { "lat": 19.0596, "lng": 72.8295 },
+    "reviews": []
+  },
+  {
+    "id": "3",
+    "name": "Connaught Place",
+    "city": "Delhi",
+    "state": "Delhi",
+    "description": "Colonial-era central business district with excellent metro access.",
+    "priceRange": { "min": 40000, "max": 85000 },
+    "ratings": {
+      "overall": 4.4,
+      "safety": 4.2,
+      "schools": 4.0,
+      "transit": 4.8,
+      "nightlife": 4.5,
+      "cost": 3.0
+    },
+    "features": ["historic", "metro", "central", "shopping"],
+    "demographics": { "population": 95000, "medianAge": 35, "medianIncome": 1100000 },
+    "coordinates": { "lat": 28.6315, "lng": 77.2167 },
+    "reviews": []
+  },
+  {
+    "id": "4",
+    "name": "Cyber City",
+    "city": "Gurgaon",
+    "state": "Haryana",
+    "description": "Modern IT hub with global companies and luxury high-rises.",
+    "priceRange": { "min": 35000, "max": 75000 },
+    "ratings": {
+      "overall": 4.3,
+      "safety": 4.4,
+      "schools": 4.1,
+      "transit": 4.0,
+      "nightlife": 4.2,
+      "cost": 3.1
+    },
+    "features": ["corporate", "modern", "expat-friendly", "tech-zone"],
+    "demographics": { "population": 150000, "medianAge": 29, "medianIncome": 1300000 },
+    "coordinates": { "lat": 28.4595, "lng": 77.0266 },
+    "reviews": []
+  },
+  {
+    "id": "5",
+    "name": "Sector 62",
+    "city": "Noida",
+    "state": "Uttar Pradesh",
+    "description": "Planned sector with IT parks and good metro connectivity.",
+    "priceRange": { "min": 28000, "max": 55000 },
+    "ratings": {
+      "overall": 4.1,
+      "safety": 4.2,
+      "schools": 4.0,
+      "transit": 4.3,
+      "nightlife": 3.8,
+      "cost": 3.8
+    },
+    "features": ["it-hub", "planned", "affordable", "family-friendly"],
+    "demographics": { "population": 125000, "medianAge": 30, "medianIncome": 950000 },
+    "coordinates": { "lat": 28.6139, "lng": 77.3910 },
+    "reviews": []
+  },
+  {
+    "id": "6",
+    "name": "Salt Lake",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "description": "Well-planned residential area known for safety and greenery.",
+    "priceRange": { "min": 20000, "max": 40000 },
+    "ratings": {
+      "overall": 4.2,
+      "safety": 4.5,
+      "schools": 4.2,
+      "transit": 3.9,
+      "nightlife": 3.5,
+      "cost": 4.0
+    },
+    "features": ["green", "safe", "quiet", "educational"],
+    "demographics": { "population": 110000, "medianAge": 34, "medianIncome": 800000 },
+    "coordinates": { "lat": 22.5867, "lng": 88.4173 },
+    "reviews": []
+  },
+  {
+    "id": "7",
+    "name": "Viman Nagar",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "description": "Urban area close to airport with malls and restaurants.",
+    "priceRange": { "min": 22000, "max": 45000 },
+    "ratings": {
+      "overall": 4.0,
+      "safety": 4.0,
+      "schools": 4.1,
+      "transit": 3.8,
+      "nightlife": 3.9,
+      "cost": 3.7
+    },
+    "features": ["airport-access", "malls", "urban", "students"],
+    "demographics": { "population": 90000, "medianAge": 29, "medianIncome": 780000 },
+    "coordinates": { "lat": 18.5669, "lng": 73.9113 },
+    "reviews": []
+  },
+  {
+    "id": "8",
+    "name": "Banjara Hills",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "description": "High-end residential and commercial area with upscale amenities.",
+    "priceRange": { "min": 40000, "max": 95000 },
+    "ratings": {
+      "overall": 4.6,
+      "safety": 4.5,
+      "schools": 4.4,
+      "transit": 4.0,
+      "nightlife": 4.4,
+      "cost": 2.9
+    },
+    "features": ["luxury", "high-income", "elite", "cosmopolitan"],
+    "demographics": { "population": 80000, "medianAge": 36, "medianIncome": 1400000 },
+    "coordinates": { "lat": 17.4126, "lng": 78.4426 },
+    "reviews": []
+  },
+  {
+    "id": "9",
+    "name": "Adyar",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "description": "Riverside neighborhood with schools, greenery, and family homes.",
+    "priceRange": { "min": 23000, "max": 47000 },
+    "ratings": {
+      "overall": 4.2,
+      "safety": 4.3,
+      "schools": 4.6,
+      "transit": 4.0,
+      "nightlife": 3.0,
+      "cost": 3.4
+    },
+    "features": ["academic", "green", "family", "heritage"],
+    "demographics": { "population": 75000, "medianAge": 33, "medianIncome": 920000 },
+    "coordinates": { "lat": 13.0067, "lng": 80.2573 },
+    "reviews": []
+  },
+  {
+    "id": "10",
+    "name": "Civil Lines",
+    "city": "Jaipur",
+    "state": "Rajasthan",
+    "description": "Peaceful and spacious area with government quarters and parks.",
+    "priceRange": { "min": 20000, "max": 42000 },
+    "ratings": {
+      "overall": 4.0,
+      "safety": 4.2,
+      "schools": 4.1,
+      "transit": 3.7,
+      "nightlife": 3.2,
+      "cost": 4.1
+    },
+    "features": ["peaceful", "green", "residential", "historic"],
+    "demographics": { "population": 67000, "medianAge": 34, "medianIncome": 700000 },
+    "coordinates": { "lat": 26.9031, "lng": 75.8006 },
+    "reviews": []
+  }
+]
