@@ -1,16 +1,9 @@
 import React from 'react';
 import { Star, TrendingUp, Shield, MapPin, Heart, Zap } from 'lucide-react';
-<<<<<<< HEAD
 import { WeightedMatchScore } from '../services/enhancedMatchingAlgorithm';
 
 interface MatchScoreDisplayProps {
   matchScore: WeightedMatchScore;
-=======
-import { MatchScore } from '../services/matchingAlgorithm';
-
-interface MatchScoreDisplayProps {
-  matchScore: MatchScore;
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
   showDetails?: boolean;
   className?: string;
 }
@@ -61,11 +54,7 @@ const MatchScoreDisplay: React.FC<MatchScoreDisplayProps> = ({
       {showDetails && (
         <div className="space-y-3">
           <div className="grid grid-cols-1 gap-2">
-<<<<<<< HEAD
             {Object.entries(matchScore.weightedScores).map(([category, data]) => {
-=======
-            {Object.entries(matchScore.categoryScores).map(([category, score]) => {
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
               const Icon = categoryIcons[category as keyof typeof categoryIcons];
               return (
                 <div key={category} className="flex items-center justify-between">
@@ -74,18 +63,14 @@ const MatchScoreDisplay: React.FC<MatchScoreDisplayProps> = ({
                     <span className="text-sm capitalize text-gray-900 dark:text-white">
                       {category}
                     </span>
-<<<<<<< HEAD
                     <span className="text-xs text-gray-500">
                       (weight: {(data.weight * 100).toFixed(0)}%)
                     </span>
-=======
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="w-16 bg-gray-200 dark:bg-gray-600 rounded-full h-2">
                       <div
                         className={`h-2 rounded-full ${
-<<<<<<< HEAD
                           data.score >= 0.8 ? 'bg-green-600' : 
                           data.score >= 0.6 ? 'bg-yellow-600' : 'bg-red-600'
                         }`}
@@ -94,16 +79,6 @@ const MatchScoreDisplay: React.FC<MatchScoreDisplayProps> = ({
                     </div>
                     <span className={`text-sm font-medium ${getScoreColor(data.score)}`}>
                       {Math.round(data.weighted * 100)}%
-=======
-                          score >= 0.8 ? 'bg-green-600' : 
-                          score >= 0.6 ? 'bg-yellow-600' : 'bg-red-600'
-                        }`}
-                        style={{ width: `${score * 100}%` }}
-                      />
-                    </div>
-                    <span className={`text-sm font-medium ${getScoreColor(score)}`}>
-                      {Math.round(score * 100)}%
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
                     </span>
                   </div>
                 </div>

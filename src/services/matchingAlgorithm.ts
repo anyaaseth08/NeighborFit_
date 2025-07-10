@@ -1,9 +1,6 @@
 // Advanced matching algorithm with weighted scoring and machine learning concepts
 import { ExternalNeighborhoodData } from './dataService';
-<<<<<<< HEAD
 import { enhancedMatchingAlgorithm, WeightedMatchScore } from './enhancedMatchingAlgorithm';
-=======
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
 
 export interface UserPreferences {
   budget: number;
@@ -420,13 +417,8 @@ class MatchingAlgorithm {
   getPersonalizedRecommendations(
     neighborhoods: ExternalNeighborhoodData[],
     preferences: UserPreferences
-<<<<<<< HEAD
   ): WeightedMatchScore[] {
     const matches = enhancedMatchingAlgorithm.calculateWeightedMatches(neighborhoods, preferences);
-=======
-  ): MatchScore[] {
-    const matches = this.calculateMatches(neighborhoods, preferences);
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
     
     // Adjust scores based on user interactions
     return matches.map(match => {

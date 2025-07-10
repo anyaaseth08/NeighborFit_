@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from 'react';
-=======
-import React, { useState } from 'react';
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Mail, Lock, Eye, EyeOff, AlertCircle } from 'lucide-react';
@@ -14,7 +10,6 @@ const Login: React.FC = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   
-<<<<<<< HEAD
   const { login, user } = useAuth();
   const navigate = useNavigate();
   const isMounted = useRef(true);
@@ -30,10 +25,6 @@ const Login: React.FC = () => {
       navigate('/');
     }
   }, [user, navigate]);
-=======
-  const { login } = useAuth();
-  const navigate = useNavigate();
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,7 +32,6 @@ const Login: React.FC = () => {
     setIsLoading(true);
 
     try {
-<<<<<<< HEAD
       const result = await login(email.trim(), password);
       if (result.success && isMounted.current) {
         navigate('/');
@@ -52,18 +42,6 @@ const Login: React.FC = () => {
       if (isMounted.current) setError('An unexpected error occurred. Please try again.');
     } finally {
       if (isMounted.current) setIsLoading(false);
-=======
-      const result = await login(email, password);
-      if (result.success) {
-        navigate('/');
-      } else {
-        setError(result.message || 'Invalid email or password');
-      }
-    } catch (err) {
-      setError('An error occurred. Please try again.');
-    } finally {
-      setIsLoading(false);
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
     }
   };
 
@@ -85,19 +63,10 @@ const Login: React.FC = () => {
           </p>
         </div>
 
-<<<<<<< HEAD
         <form className="mt-8 space-y-6" onSubmit={handleSubmit} autoComplete="off">
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="email-address" className="sr-only">Email address</label>
-=======
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="rounded-md shadow-sm -space-y-px">
-            <div>
-              <label htmlFor="email-address" className="sr-only">
-                Email address
-              </label>
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
               <div className="relative">
                 <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                 <input
@@ -108,23 +77,13 @@ const Login: React.FC = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-<<<<<<< HEAD
                   className="appearance-none rounded-none relative block w-full px-10 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm transition-colors"
-=======
-                  className="appearance-none rounded-none relative block w-full px-10 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm transition-colors"
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
                   placeholder="Email address"
                 />
               </div>
             </div>
             <div>
-<<<<<<< HEAD
               <label htmlFor="password" className="sr-only">Password</label>
-=======
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
               <div className="relative">
                 <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                 <input
@@ -135,11 +94,7 @@ const Login: React.FC = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-<<<<<<< HEAD
                   className="appearance-none rounded-none relative block w-full px-10 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 rounded-b-md focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm transition-colors"
-=======
-                  className="appearance-none rounded-none relative block w-full px-10 py-3 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 rounded-b-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm transition-colors"
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
                   placeholder="Password"
                 />
                 <button
@@ -157,13 +112,8 @@ const Login: React.FC = () => {
             <div className="rounded-md bg-red-50 dark:bg-red-900 p-4">
               <div className="flex">
                 <AlertCircle className="h-5 w-5 text-red-400" />
-<<<<<<< HEAD
                 <div className="ml-3 text-sm text-red-700 dark:text-red-300">
                   {error}
-=======
-                <div className="ml-3">
-                  <div className="text-sm text-red-700 dark:text-red-300">{error}</div>
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
                 </div>
               </div>
             </div>
@@ -211,8 +161,4 @@ const Login: React.FC = () => {
   );
 };
 
-<<<<<<< HEAD
 export default Login;
-=======
-export default Login;
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
