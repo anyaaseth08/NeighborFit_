@@ -1,31 +1,13 @@
-<<<<<<< HEAD
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { authService } from '../services/authService';
 
 type UserRole = 'user' | 'admin';
 
-=======
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  ReactNode
-} from 'react';
-import bcrypt from 'bcryptjs';
-
-// Define the User structure
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
 export interface User {
   id: string;
   email: string;
   name: string;
-<<<<<<< HEAD
   role: UserRole;
-=======
-  password: string; // hashed
-  role: 'user' | 'admin';
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
   avatar?: string;
   preferences?: {
     budget: number;
@@ -53,43 +35,15 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-<<<<<<< HEAD
   const [isLoading, setIsLoading] = useState(true);
 
   // On mount, load user from localStorage
   useEffect(() => {
-=======
-  const [users, setUsers] = useState<User[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Load users from JSON file
-  const loadUsers = async () => {
-  try {
-    const db = await import('../data/user_db.json');
-    const parsed: User[] = (db.default || db).map((u: any) => ({
-      ...u,
-      role: u.role === 'admin' ? 'admin' : 'user' // ensure type safety
-    })) as User[];
-
-    setUsers(parsed);
-  } catch (err) {
-    console.error('Failed to load user DB:', err);
-  } finally {
-    setIsLoading(false);
-  }
-};
-
-
-  useEffect(() => {
-    loadUsers();
-
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
     const storedUser = localStorage.getItem('neighborfit_user');
     if (storedUser) {
       try {
         const parsed = JSON.parse(storedUser);
         setUser(parsed);
-<<<<<<< HEAD
       } catch (e) {
         console.error('Error loading user from localStorage:', e);
         localStorage.removeItem('neighborfit_user');
@@ -124,64 +78,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       console.error('Registration error:', err);
       return { success: false, message: 'Registration failed. Try again.' };
     }
-=======
-      } catch {
-        localStorage.removeItem('neighborfit_user');
-      }
-    }
-  }, []);
-
-  const login = async (email: string, password: string) => {
-    const existingUser = users.find(
-      u => u.email.toLowerCase() === email.toLowerCase()
-    );
-    if (!existingUser) {
-      return { success: false, message: 'User not found' };
-    }
-
-    const passwordMatch = await bcrypt.compare(password, existingUser.password);
-    if (!passwordMatch) {
-      return { success: false, message: 'Invalid password' };
-    }
-
-    setUser(existingUser);
-    localStorage.setItem('neighborfit_user', JSON.stringify(existingUser));
-    return { success: true };
-  };
-
-  const register = async (email: string, password: string, name: string) => {
-    if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
-      return { success: false, message: 'User already exists' };
-    }
-
-    if (password.length < 6) {
-      return { success: false, message: 'Password must be at least 6 characters' };
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser: User = {
-      id: Date.now().toString(),
-      email: email.toLowerCase(),
-      name: name.trim(),
-      password: hashedPassword,
-      role: 'user',
-      avatar: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150',
-      preferences: {
-        budget: 30000,
-        lifestyle: [],
-        priorities: [],
-        ageGroup: 'young-professional'
-      },
-      createdAt: new Date().toISOString().split('T')[0]
-    };
-
-    // Store in-memory only (simulate persistent DB)
-    const updatedUsers = [...users, newUser];
-    setUsers(updatedUsers);
-    setUser(newUser);
-    localStorage.setItem('neighborfit_user', JSON.stringify(newUser));
-    return { success: true };
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
   };
 
   const logout = () => {
@@ -191,7 +87,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const updateProfile = async (data: Partial<User>) => {
     if (!user) return false;
-<<<<<<< HEAD
 
     try {
       const success = await authService.updateUser(user.id, data);
@@ -206,25 +101,13 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       console.error('Profile update error:', err);
       return false;
     }
-=======
-    const updatedUser = { ...user, ...data };
-    setUser(updatedUser);
-    localStorage.setItem('neighborfit_user', JSON.stringify(updatedUser));
-    return true;
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
   };
 
   const updatePreferences = (preferences: User['preferences']) => {
     if (!user) return;
-<<<<<<< HEAD
     const updated = { ...user, preferences };
     setUser(updated);
     localStorage.setItem('neighborfit_user', JSON.stringify(updated));
-=======
-    const updatedUser = { ...user, preferences };
-    setUser(updatedUser);
-    localStorage.setItem('neighborfit_user', JSON.stringify(updatedUser));
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
   };
 
   const value: AuthContextType = {
@@ -237,23 +120,11 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     isLoading
   };
 
-<<<<<<< HEAD
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-=======
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
 };
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
-<<<<<<< HEAD
   if (!context) throw new Error('useAuth must be used within AuthProvider');
-=======
-  if (!context) throw new Error('useAuth must be used within an AuthProvider');
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
   return context;
 };

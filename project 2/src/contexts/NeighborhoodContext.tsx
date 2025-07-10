@@ -1,9 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-<<<<<<< HEAD
 // import neighborhoodData from '../data/neighborhoods.json';
 
-=======
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
 
 export interface Neighborhood {
   id: string;
@@ -96,12 +93,8 @@ export interface FilterState {
 const NeighborhoodContext = createContext<NeighborhoodContextType | undefined>(undefined);
 
 // Enhanced Indian neighborhood data with North India focus
-<<<<<<< HEAD
 const mockNeighborhoods: Neighborhood[] = 
 [
-=======
-const mockNeighborhoods: Neighborhood[] = [
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
   // South India (existing)
   {
     id: '1',

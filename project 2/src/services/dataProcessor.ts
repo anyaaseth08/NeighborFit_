@@ -66,7 +66,6 @@ class DataProcessor {
       console.log(`Processing ${neighborhood.name} (attempt ${attempts + 1})`);
       
       // Fetch external data
-<<<<<<< HEAD
       let externalData;
       try {
         externalData = await dataService.fetchNeighborhoodData(neighborhood);
@@ -74,9 +73,6 @@ class DataProcessor {
         console.warn(`External data fetch failed for ${neighborhood.name}, using fallback:`, error);
         externalData = this.createFallbackExternalData(neighborhood);
       }
-=======
-      const externalData = await dataService.fetchNeighborhoodData(neighborhood);
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
       
       // Validate and clean the data
       const cleanedData = this.validateAndCleanData(externalData);
@@ -108,7 +104,6 @@ class DataProcessor {
     }
   }
 
-<<<<<<< HEAD
   // Create fallback external data when API fails
   private createFallbackExternalData(neighborhood: Neighborhood): any {
     return {
@@ -210,55 +205,6 @@ class DataProcessor {
     } catch (error) {
       console.warn('Error validating data, using fallback:', error);
       return this.createFallbackExternalData({ id: 'unknown', name: 'Unknown', city: 'Unknown', state: 'Unknown', coordinates: { lat: 0, lng: 0 }, priceRange: { min: 30000, max: 50000 }, ratings: { overall: 3.5, safety: 3.5, schools: 3.5, transit: 3.5, nightlife: 3.5, cost: 3.5 }, demographics: { population: 50000, medianAge: 35, medianIncome: 800000 } } as any);
-=======
-  // Validate and clean external data
-  private validateAndCleanData(data: ExternalNeighborhoodData): ExternalNeighborhoodData {
-    const cleaned = { ...data };
-    const errors: string[] = [];
-
-    // Validate real estate data
-    if (cleaned.realEstate.averageRent <= 0) {
-      cleaned.realEstate.averageRent = 30000; // Default fallback
-      errors.push('Invalid rent data corrected');
-    }
-    
-    if (cleaned.realEstate.pricePerSqFt <= 0) {
-      cleaned.realEstate.pricePerSqFt = 8000; // Default fallback
-      errors.push('Invalid price per sqft corrected');
-    }
-
-    // Validate crime data
-    if (cleaned.crime.safetyScore < 0 || cleaned.crime.safetyScore > 5) {
-      cleaned.crime.safetyScore = Math.min(5, Math.max(0, cleaned.crime.safetyScore));
-      errors.push('Safety score normalized');
-    }
-    
-    if (cleaned.crime.crimeRate < 0) {
-      cleaned.crime.crimeRate = 2.0; // Default average
-      errors.push('Invalid crime rate corrected');
-    }
-
-    // Validate transit data
-    cleaned.transit.walkScore = Math.min(100, Math.max(0, cleaned.transit.walkScore));
-    cleaned.transit.transitScore = Math.min(100, Math.max(0, cleaned.transit.transitScore));
-    cleaned.transit.bikeScore = Math.min(100, Math.max(0, cleaned.transit.bikeScore));
-
-    // Validate school data
-    if (cleaned.schools.averageRating < 0 || cleaned.schools.averageRating > 5) {
-      cleaned.schools.averageRating = Math.min(5, Math.max(0, cleaned.schools.averageRating));
-      errors.push('School rating normalized');
-    }
-
-    // Validate demographics
-    if (cleaned.demographics.population <= 0) {
-      cleaned.demographics.population = 50000; // Default
-      errors.push('Invalid population corrected');
-    }
-    
-    if (cleaned.demographics.medianAge <= 0 || cleaned.demographics.medianAge > 100) {
-      cleaned.demographics.medianAge = 35; // Default
-      errors.push('Invalid median age corrected');
->>>>>>> 897f3c5bb040d20279a5704a1a16a80a9daa6525
     }
 
     if (errors.length > 0) {
